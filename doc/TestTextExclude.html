@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TestTextExclude - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Test::Unit::TestCase
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-setup">#setup</a>
+    
+    <li ><a href="#method-i-test_text_exclude_0100">#test_text_exclude_0100</a>
+    
+    <li ><a href="#method-i-test_text_exclude_0200">#test_text_exclude_0200</a>
+    
+    <li ><a href="#method-i-test_text_exclude_0300">#test_text_exclude_0300</a>
+    
+    <li ><a href="#method-i-test_text_exclude_0400">#test_text_exclude_0400</a>
+    
+    <li ><a href="#method-i-test_text_exclude_r100">#test_text_exclude_r100</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TestTextExclude">
+  <h1 id="class-TestTextExclude" class="class">
+    class TestTextExclude
+  </h1>
+
+  <section class="description">
+    
+<p><a href="TestTextExclude.html">TestTextExclude</a> implements the basic
+unit tests. Comprehensive units tests are required actual validation. 
+However specifying exactly how all these functions are to work is not
+plausible when designing for a Command Line and Log interface.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initial setup</p>
+          
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File TestTextExclude.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
+  <span class="ruby-ivar">@user_interface</span> = <span class="ruby-constant">UserInterface</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@text_processor</span> = <span class="ruby-constant">TextProcessor</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@file_manager</span>  = <span class="ruby-constant">FileManager</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-comment"># set up control structure for file names</span>
+  <span class="ruby-identifier">$file_history</span>  = <span class="ruby-constant">OpenStruct</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:file01</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-value">:file02</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-value">:file03</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-value">:file04</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-value">:file05</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-value">:file06</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-value">:file07</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-value">:file08</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-value">:file09</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-comment"># set up control structure for search strings</span>
+  <span class="ruby-identifier">$search_history</span> = <span class="ruby-constant">OpenStruct</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:search01</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-value">:search02</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-value">:search03</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-value">:search04</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-value">:search05</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-value">:search06</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-value">:search07</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-value">:search08</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-value">:search09</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_text_exclude_0100" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_text_exclude_0100</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Test of 1. Include additional lines in TextProcessor::text_include“</p>
+          
+          
+
+          
+          <div class="method-source-code" id="test_text_exclude_0100-source">
+            <pre><span class="ruby-comment"># File TestTextExclude.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_text_exclude_0100</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\ntest_text_exclude_0100 Test of 1. Include additional lines in TextProcessor::text_include&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;test_text_iexclude_0100 Processing /home/brad/runner/control0100 as Stdin\n&quot;</span> 
+  <span class="ruby-constant">ARGV</span>.<span class="ruby-identifier">push</span>(<span class="ruby-string">&quot;/home/brad/runner/control0100&quot;</span>)
+  <span class="ruby-identifier">file_name</span>  = <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_file_read</span>)
+  <span class="ruby-identifier">text_lines</span> = <span class="ruby-ivar">@file_manager</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:file_directory</span>, <span class="ruby-string">&quot;/home/brad/runner/testdata&quot;</span>)
+  <span class="ruby-identifier">pattern</span>    = <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_pattern</span>)
+               <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;test_text_exclude_0100 Test pattern is: #{pattern}\n&quot;</span>  
+               <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">pattern</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;4&quot;</span>, <span class="ruby-node">&quot;:user_pattern in test_text_exclude_ got #{pattern} so something about control0100&quot;</span>)
+  <span class="ruby-identifier">text_area</span>  = <span class="ruby-ivar">@text_processor</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:text_include</span>, <span class="ruby-identifier">text_lines</span>)
+               <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_display</span>, <span class="ruby-identifier">text_area</span>)
+  <span class="ruby-comment">#            text_area.each { |ta| p ta }</span>
+               <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">3</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;before&quot;</span>, <span class="ruby-value">3</span>], <span class="ruby-string">&quot;Failed 0100 UserInterface::text_include&quot;</span>)
+               <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">4</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;text&quot;</span>, <span class="ruby-string">&quot; 4 m n o p q mnopq line0&quot;</span>], <span class="ruby-string">&quot;Failed 0110 UserInterface::text_include&quot;</span>)
+               <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">5</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;fill&quot;</span>, <span class="ruby-string">&quot;&quot;</span>], <span class="ruby-string">&quot;Failed 0120 UserInterface::text_include&quot;</span>)
+               <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">39</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;before&quot;</span>, <span class="ruby-value">5</span>], <span class="ruby-string">&quot;Failed 0130 UserInterface::text_include&quot;</span>)
+               <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">40</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;text&quot;</span>, <span class="ruby-string">&quot;40 r s t u v rstuv line4 fourty&quot;</span>], <span class="ruby-string">&quot;Failed 0140 UserInterface::text_include&quot;</span>)  
+  <span class="ruby-identifier">selection</span>  = <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_prompt_options</span>, <span class="ruby-identifier">text_area</span>)
+               <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">selection</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;1&quot;</span>, <span class="ruby-node">&quot;:user_prompt_options in test_text_exclude_ got #{selection} so something about control0100&quot;</span>)
+  <span class="ruby-identifier">pattern</span>    = <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_pattern</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">selection</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;1&quot;</span> 
+               <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">pattern</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;abc&quot;</span>, <span class="ruby-node">&quot;:user_pattern in test_text_exclude_ got #{pattern} so something about control0100&quot;</span>)
+  <span class="ruby-identifier">text_area</span>  = <span class="ruby-ivar">@text_processor</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:text_include</span>, <span class="ruby-identifier">text_lines</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">selection</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;1&quot;</span>                                                      
+               <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_display</span>, <span class="ruby-identifier">text_area</span>) <span class="ruby-keyword">if</span> (<span class="ruby-string">&quot;1&quot;</span><span class="ruby-operator">..</span><span class="ruby-string">&quot;5&quot;</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">selection</span>)  
+  <span class="ruby-comment">#            text_area.each { |ta| p ta } </span>
+               <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;text&quot;</span>, <span class="ruby-string">&quot; 1 a b c d e abcde line0 zero start&quot;</span>], <span class="ruby-string">&quot;Failed 0150 TextProcessor::text_include&quot;</span>)
+               <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">3</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;before&quot;</span>, <span class="ruby-value">2</span>], <span class="ruby-string">&quot;Failed 0160 TextProcessor::text_include&quot;</span>)
+               <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">4</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;text&quot;</span>, <span class="ruby-string">&quot; 4 m n o p q mnopq line0&quot;</span>], <span class="ruby-string">&quot;Failed 0170 TextProcessor::text_include&quot;</span>)
+               <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">33</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;before&quot;</span>, <span class="ruby-value">2</span>], <span class="ruby-string">&quot;Failed 0180 TextProcessor::text_include&quot;</span>)
+               <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">40</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;text&quot;</span>, <span class="ruby-string">&quot;40 r s t u v rstuv line4 fourty&quot;</span>], <span class="ruby-string">&quot;Failed 0190 TextProcessor::text_include&quot;</span>)
+               <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\ntest_text_exclude_0100 Test of 1. Include additional lines in TextProcessor::text_include completed&quot;</span> 
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_text_exclude_0200" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_text_exclude_0200</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Test of 2. Exclude additional lines TextProcessor::text_exclude“</p>
+          
+          
+
+          
+          <div class="method-source-code" id="test_text_exclude_0200-source">
+            <pre><span class="ruby-comment"># File TestTextExclude.rb, line 57</span>
+ <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_text_exclude_0200</span>
+   <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\ntest_text_exclude_0200 Test of 2. Exclude additional lines TextProcessor::text_exclude&quot;</span>
+   <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;test_text_exclude_0200 Processing /home/brad/runner/control0200 as Stdin\n&quot;</span> 
+   <span class="ruby-constant">ARGV</span>.<span class="ruby-identifier">push</span>(<span class="ruby-string">&quot;/home/brad/runner/control0200&quot;</span>)
+   <span class="ruby-identifier">file_name</span>  = <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_file_read</span>)
+   <span class="ruby-identifier">text_lines</span> = <span class="ruby-ivar">@file_manager</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:file_directory</span>, <span class="ruby-string">&quot;/home/brad/runner/testdata&quot;</span>)
+   <span class="ruby-identifier">pattern</span>    = <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_pattern</span>)
+                <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;test_text_exclude_0200 Test pattern is: #{pattern}&quot;</span>  
+                <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">pattern</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;abc&quot;</span>, <span class="ruby-node">&quot;:user_pattern in test_text_exclude_ got #{pattern} so something about the test commands changed&quot;</span>)
+   <span class="ruby-identifier">text_area</span>  = <span class="ruby-ivar">@text_processor</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:text_include</span>, <span class="ruby-identifier">text_lines</span>)
+                <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_display</span>, <span class="ruby-identifier">text_area</span>)
+   <span class="ruby-comment">#            text_area.each { |ta| p ta }</span>
+                <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;text&quot;</span>, <span class="ruby-string">&quot; 1 a b c d e abcde line0 zero start&quot;</span>], <span class="ruby-string">&quot;Failed 0200 TextProcessor::text_include&quot;</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">5</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;before&quot;</span>, <span class="ruby-value">4</span>], <span class="ruby-string">&quot;Failed 0210 TextProcessor::text_include&quot;</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">36</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;text&quot;</span>, <span class="ruby-string">&quot;36 a b c d e abcde zayin&quot;</span>], <span class="ruby-string">&quot;Failed 0220 TextProcessor::text_include&quot;</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">40</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;after&quot;</span>, <span class="ruby-value">4</span>], <span class="ruby-string">&quot;Failed 0230 TextProcessor::text_include&quot;</span>) 
+   <span class="ruby-identifier">selection</span>  = <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_prompt_options</span>, <span class="ruby-identifier">text_area</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">selection</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;2&quot;</span>, <span class="ruby-node">&quot;:user_prompt_options in test_text_exclude_ got #{selection} so something about control0200&quot;</span>)
+   <span class="ruby-identifier">pattern</span>    = <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_pattern</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">selection</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;2&quot;</span> 
+                <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">pattern</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;zayin&quot;</span>, <span class="ruby-node">&quot;:user_pattern in test_text_exclude_ got #{pattern} so something about control0200&quot;</span>)
+   <span class="ruby-identifier">text_area</span>  = <span class="ruby-ivar">@text_processor</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:text_exclude</span>, <span class="ruby-identifier">text_area</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">selection</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;2&quot;</span> 
+   <span class="ruby-comment">#            text_area.each { |ta| p ta }  </span>
+<span class="ruby-comment">#   text_area  = @text_processor.send(:text_include, text_area)  if selection == &quot;2&quot;                                      </span>
+                <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_display</span>, <span class="ruby-identifier">text_area</span>) <span class="ruby-keyword">if</span> (<span class="ruby-string">&quot;1&quot;</span><span class="ruby-operator">..</span><span class="ruby-string">&quot;5&quot;</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">selection</span>) 
+                <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;text&quot;</span>, <span class="ruby-string">&quot;Not yet implemented&quot;</span>], <span class="ruby-string">&quot;Failed 0240 TextProcessor::text_exclude&quot;</span>) 
+                <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\ntest_text_exclude_0200 Test of 2. Exclude additional lines TextProcessor::text_exclude completed&quot;</span>
+ <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_text_exclude_0300" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_text_exclude_0300</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Test of 3. Delete all included text TextProcessor::text_delete_in“</p>
+          
+          
+
+          
+          <div class="method-source-code" id="test_text_exclude_0300-source">
+            <pre><span class="ruby-comment"># File TestTextExclude.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_text_exclude_0300</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\ntest_text_exclude_0300 Test of 3. Delete all included text TextProcessor::text_delete_in&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\ntest_text_exclude_0300 Processing /home/brad/runner/control0300 as Stdin\n&quot;</span> 
+    <span class="ruby-constant">ARGV</span>.<span class="ruby-identifier">push</span>(<span class="ruby-string">&quot;/home/brad/runner/control0300&quot;</span>)
+    <span class="ruby-identifier">file_name</span>  = <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_file_read</span>)
+    <span class="ruby-identifier">text_lines</span> = <span class="ruby-ivar">@file_manager</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:file_directory</span>, <span class="ruby-string">&quot;/home/brad/runner/testdata&quot;</span>)
+    <span class="ruby-identifier">pattern</span>    = <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_pattern</span>)
+                 <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;test_text_exclude_0300 Test pattern is: #{pattern}&quot;</span>  
+                 <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">pattern</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;hijkl line1&quot;</span>, <span class="ruby-node">&quot;:user_pattern in test_text_exclude_ got #{pattern} so something about the test commands changed&quot;</span>)
+    <span class="ruby-identifier">text_area</span>  = <span class="ruby-ivar">@text_processor</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:text_include</span>, <span class="ruby-identifier">text_lines</span>)
+                 <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_display</span>, <span class="ruby-identifier">text_area</span>)
+    <span class="ruby-comment">#            text_area.each { |ta| p ta }</span>
+                 <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">12</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;before&quot;</span>, <span class="ruby-value">12</span>], <span class="ruby-string">&quot;Failed 0300 TextProcessor::text_include&quot;</span>)
+                 <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">13</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;text&quot;</span>, <span class="ruby-string">&quot;13 h i j k l hijkl line1&quot;</span>], <span class="ruby-string">&quot;Failed 0310 TextProcessor::text_include&quot;</span>)  
+                 <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">17</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;before&quot;</span>, <span class="ruby-value">4</span>], <span class="ruby-string">&quot;Failed 0320 TextProcessor::text_include&quot;</span>)
+                 <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">18</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;text&quot;</span>, <span class="ruby-string">&quot;18 h i j k l hijkl line1&quot;</span>], <span class="ruby-string">&quot;Failed 0330 TextProcessor::text_include&quot;</span>)
+                 <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">40</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;after&quot;</span>, <span class="ruby-value">22</span>], <span class="ruby-string">&quot;Failed 0340 TextProcessor::text_include&quot;</span>)  
+                 <span class="ruby-identifier">selection</span>  = <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_prompt_options</span>, <span class="ruby-identifier">text_area</span>)
+                 <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">selection</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;3&quot;</span>, <span class="ruby-node">&quot;:user_prompt_options in test_text_exclude_ got #{selection} so something about control0300&quot;</span>)                                                
+    <span class="ruby-identifier">text_area</span>  = <span class="ruby-ivar">@text_processor</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:text_delete_in</span>, <span class="ruby-identifier">text_lines</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">selection</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;3&quot;</span>
+                 <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_display</span>, <span class="ruby-identifier">text_area</span>) <span class="ruby-keyword">if</span> (<span class="ruby-string">&quot;1&quot;</span><span class="ruby-operator">..</span><span class="ruby-string">&quot;5&quot;</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">selection</span>)  
+    <span class="ruby-comment">#            text_area.each { |ta| p ta }  </span>
+                 <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">1</span>]  <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;text&quot;</span>, <span class="ruby-string">&quot; 1 a b c d e abcde line0 zero start&quot;</span>], <span class="ruby-string">&quot;Failed 0350 TextProcessor::text_include&quot;</span>)
+                 <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">13</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;text&quot;</span>, <span class="ruby-string">&quot;14 m n o p q mnopq line1&quot;</span>], <span class="ruby-string">&quot;Failed 0360 TextProcessor::text_include&quot;</span>)
+                 <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">17</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;text&quot;</span>, <span class="ruby-string">&quot;19 m n o p q mnopq line1&quot;</span>], <span class="ruby-string">&quot;Failed 0370 TextProcessor::text_include&quot;</span>)
+                 <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">38</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;text&quot;</span>, <span class="ruby-string">&quot;40 r s t u v rstuv line4 fourty&quot;</span>], <span class="ruby-string">&quot;Failed 0380 TextProcessor::text_include&quot;</span>)        
+                 <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\ntest_text_exclude_0300 Test of 3. Delete all included text TextProcessor::text_delete_in completed&quot;</span>
+ <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_text_exclude_0400" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_text_exclude_0400</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Test of 4. Delete all excluded text TextProcessor::text_delete_ex“</p>
+          
+          
+
+          
+          <div class="method-source-code" id="test_text_exclude_0400-source">
+            <pre><span class="ruby-comment"># File TestTextExclude.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_text_exclude_0400</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\ntest_text_exclude_0400 Test of 4. Delete all excluded text TextProcessor::text_delete_ex&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\ntest_text_exclude_0400 Processing /home/brad/runner/control0400 as Stdin\n&quot;</span> 
+  <span class="ruby-constant">ARGV</span>.<span class="ruby-identifier">push</span>(<span class="ruby-string">&quot;/home/brad/runner/control0400&quot;</span>)
+  <span class="ruby-identifier">file_name</span>  = <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_file_read</span>)
+  <span class="ruby-identifier">text_lines</span> = <span class="ruby-ivar">@file_manager</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:file_directory</span>, <span class="ruby-string">&quot;/home/brad/runner/testdata&quot;</span>)
+  <span class="ruby-identifier">pattern</span>    = <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_pattern</span>)
+               <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;test_text_exclude_0400 Test pattern is: #{pattern}&quot;</span> 
+               <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">pattern</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;t&quot;</span>, <span class="ruby-node">&quot;:user_pattern in test_text_exclude_ got #{pattern} so something about the test commands changed&quot;</span>)
+  <span class="ruby-identifier">text_area</span>  = <span class="ruby-ivar">@text_processor</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:text_include</span>, <span class="ruby-identifier">text_lines</span>)
+               <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_display</span>, <span class="ruby-identifier">text_area</span>)
+  <span class="ruby-comment">#            text_area.each { |ta| p ta }</span>
+               <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">19</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;before&quot;</span>, <span class="ruby-value">4</span>], <span class="ruby-string">&quot;Failed 0400 UserInterface::text_include&quot;</span>)
+               <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">20</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;text&quot;</span>, <span class="ruby-string">&quot;20 r s t u v rstuv extra twenty&quot;</span>], <span class="ruby-string">&quot;Failed 0410 UserInterface::text_include&quot;</span>)
+  <span class="ruby-identifier">selection</span>  = <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_prompt_options</span>, <span class="ruby-identifier">text_area</span>)
+               <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">selection</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;4&quot;</span>, <span class="ruby-node">&quot;:user_prompt_options in test_text_exclude_ got #{selection} so something about control0300&quot;</span>)                                                
+  <span class="ruby-identifier">text_area</span>  = <span class="ruby-ivar">@text_processor</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:text_delete_ex</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">selection</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;4&quot;</span>                                              
+               <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_display</span>, <span class="ruby-identifier">text_area</span>) <span class="ruby-keyword">if</span> (<span class="ruby-string">&quot;1&quot;</span><span class="ruby-operator">..</span><span class="ruby-string">&quot;5&quot;</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">selection</span>)            
+  <span class="ruby-comment">#            text_area.each { |ta| p ta }</span>
+               <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">1</span>]  <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;text&quot;</span>, <span class="ruby-string">&quot; 1 a b c d e abcde line0 zero start&quot;</span>], <span class="ruby-string">&quot;Failed 0420 TextProcessor::text_delete_ex&quot;</span>)
+               <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">5</span>]  <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;text&quot;</span>, <span class="ruby-string">&quot; 5 r s t u v rstuv line0&quot;</span>], <span class="ruby-string">&quot;Failed 0420 TextProcessor::text_delete_ex&quot;</span>)
+               <span class="ruby-identifier">assert_no_match</span>(<span class="ruby-regexp">/&quot;before&quot;/</span>, <span class="ruby-string">&quot;text_area[9]&quot;</span>, <span class="ruby-string">&quot;Failed 0430 TextProcessor::text_delete_ex&quot;</span>)
+               <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">10</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;text&quot;</span>, <span class="ruby-string">&quot;10 r s t u v rstuv line0 ten&quot;</span>], <span class="ruby-string">&quot;Failed 0440 TextProcessor::text_delete_ex&quot;</span>)
+               <span class="ruby-identifier">assert_no_match</span>(<span class="ruby-regexp">/&quot;fill&quot;/</span>, <span class="ruby-string">&quot;text_area[33]&quot;</span>, <span class="ruby-string">&quot;Failed 0450 TextProcessor::text_delete_ex&quot;</span>)
+               <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\ntest_text_exclude_0400 Test of 4. Delete all included text TextProcessor::text_delete_ex completed&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_text_exclude_r100" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_text_exclude_r100</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Test of 1. Include additional lines with range in
+TextProcessor::text_mixer_include“</p>
+          
+          
+
+          
+          <div class="method-source-code" id="test_text_exclude_r100-source">
+            <pre><span class="ruby-comment"># File TestTextExclude.rb, line 144</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_text_exclude_r100</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\ntest_text_exclude_r100 Test of 1. Include additional lines with range in TextProcessor::text_mixer_include&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;test_text_exclude_r100 Processing /home/brad/runner/controlr100 as Stdin\n&quot;</span> 
+    <span class="ruby-constant">ARGV</span>.<span class="ruby-identifier">push</span>(<span class="ruby-string">&quot;/home/brad/runner/controlr100&quot;</span>)
+    <span class="ruby-identifier">file_name</span>  = <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_file_read</span>)
+    <span class="ruby-identifier">text_lines</span> = <span class="ruby-ivar">@file_manager</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:file_directory</span>, <span class="ruby-string">&quot;/home/brad/runner/testdata&quot;</span>)
+    <span class="ruby-identifier">pattern</span>    = <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_pattern</span>)
+                 <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;test_text_exclude_r100 Test pattern is: #{pattern}\n&quot;</span>  
+                 <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">pattern</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;rs&quot;</span>, <span class="ruby-node">&quot;:user_pattern in test_text_exclude got #{pattern} so something about controlr100&quot;</span>)
+    <span class="ruby-identifier">text_area</span>  = <span class="ruby-ivar">@text_processor</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:text_include</span>, <span class="ruby-identifier">text_lines</span>)
+                 <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_display</span>, <span class="ruby-identifier">text_area</span>)
+    <span class="ruby-comment">#            text_area.each { |ta| p ta }</span>
+                 <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">4</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;before&quot;</span>, <span class="ruby-value">4</span>], <span class="ruby-string">&quot;Failed r100 UserInterface::text_include&quot;</span>)
+                 <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">5</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;text&quot;</span>, <span class="ruby-string">&quot; 5 r s t u v rstuv line0&quot;</span>], <span class="ruby-string">&quot;Failed r110 UserInterface::text_include&quot;</span>)
+                 <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">39</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;before&quot;</span>, <span class="ruby-value">4</span>], <span class="ruby-string">&quot;Failed r120 UserInterface::text_include&quot;</span>)
+                 <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">40</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;text&quot;</span>, <span class="ruby-string">&quot;40 r s t u v rstuv line4 fourty&quot;</span>], <span class="ruby-string">&quot;Failed r130 UserInterface::text_include&quot;</span>)  
+    <span class="ruby-identifier">selection</span>  = <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_prompt_options</span>, <span class="ruby-identifier">text_area</span>)
+                 <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">selection</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;5&quot;</span>, <span class="ruby-node">&quot;:user_prompt_options in test_text_exclude_ got #{selection} so something about controlr100&quot;</span>)
+    <span class="ruby-identifier">arguments</span>  = <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_prompt_ranges</span>, <span class="ruby-identifier">text_area</span>, <span class="ruby-identifier">text_lines</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">selection</span>    <span class="ruby-operator">==</span> <span class="ruby-string">&quot;5&quot;</span>
+<span class="ruby-comment">#                 assert(arguments == &quot;[\&quot;1\&quot;,\&quot;5\&quot;,\&quot;12\&quot;]&quot;, &quot;:user_prompt_options in test_text_exclude_r100 got #{arguments} so something about controlr100&quot;)</span>
+    <span class="ruby-identifier">parameters</span> = <span class="ruby-ivar">@text_processor</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:text_mixer</span>, <span class="ruby-identifier">text_area</span>, <span class="ruby-identifier">arguments</span>)          <span class="ruby-keyword">if</span> <span class="ruby-identifier">selection</span>    <span class="ruby-operator">==</span> <span class="ruby-string">&quot;5&quot;</span>
+<span class="ruby-comment">#                 assert(parameters == &quot;[\&quot;1\&quot;,\&quot;5\&quot;,\&quot;12\&quot;]&quot;, &quot;:text_mixer in test_text_exclude_r100 got #{parameters} so something about controlr100&quot;)</span>
+    <span class="ruby-identifier">pattern</span>    = <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_pattern</span>)                              <span class="ruby-keyword">if</span> <span class="ruby-identifier">selection</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;5&quot;</span> 
+                 <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">pattern</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;abc&quot;</span>, <span class="ruby-node">&quot;:user_pattern in test_text_exclude got #{pattern} so something about controlr100&quot;</span>)
+    <span class="ruby-identifier">text_area</span>  = <span class="ruby-ivar">@text_processor</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:text_include</span>, <span class="ruby-identifier">text_lines</span>)                                                                        
+                 <span class="ruby-ivar">@user_interface</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:user_display</span>, <span class="ruby-identifier">text_area</span>)                    
+    <span class="ruby-comment">#            text_area.each { |ta| p ta } </span>
+                 <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;text&quot;</span>, <span class="ruby-string">&quot; 1 a b c d e abcde line0 zero start&quot;</span>], <span class="ruby-string">&quot;Failed r140 TextProcessor::text_include&quot;</span>)
+                 <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">4</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;before&quot;</span>, <span class="ruby-value">3</span>], <span class="ruby-string">&quot;Failed r160 TextProcessor::text_include&quot;</span>)
+                 <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">5</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;text&quot;</span>, <span class="ruby-string">&quot; 5 r s t u v rstuv line0&quot;</span>], <span class="ruby-string">&quot;Failed r170 TextProcessor::text_include&quot;</span>)
+                 <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">39</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;before&quot;</span>, <span class="ruby-value">3</span>], <span class="ruby-string">&quot;Failed r180 TextProcessor::text_include&quot;</span>)
+                 <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">text_area</span>[<span class="ruby-value">40</span>] <span class="ruby-operator">==</span> [<span class="ruby-string">&quot;text&quot;</span>, <span class="ruby-string">&quot;40 r s t u v rstuv line4 fourty&quot;</span>], <span class="ruby-string">&quot;Failed r190 TextProcessor::text_include&quot;</span>)
+                 <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\ntest_text_exclude_r100 Test of 1. Include additional lines in TextProcessor::text_mixer_include completed&quot;</span> 
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
