@@ -13,7 +13,7 @@ application up and running as soon as I find out what that is.
 
 * Database initialization: None
 
-* How to run the test suite: TextExclude is packaged as a gem in ~/software/ruby/gems/TextExclude, run rake test
+* How to run the test suite: TextExclude is packaged as a gem in ~/workspace/TextExclude/gem/TextExclude/lib, run rake test
 
 * Services (job queues, cache servers, search engines, etc.): None
 
