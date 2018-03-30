@@ -1,20 +1,23 @@
-# TextExclude
+# README
 
-This will document whatever steps are necessary to get the
-application up and running as soon as I find out what that is.
+This README will document whatever steps are necessary to get the
+application up and running once I figure out what they are.
 
-* Ruby version: This was created using ruby 2.3.1p112 (2016-04-26) [x86_64-linux-gnu]
+Things I do know:
 
-* System dependencies: Linux only for now
+* This was written using ruby 2.3.1p112 (2016-04-26) [x86_64-linux-gnu]
 
-* Configuration: None
+* Only works with linux for now due to using files
+
+* Configuration: none
 
 * Database creation: None
 
 * Database initialization: None
 
-* How to run the test suite: TextExclude is packaged as a gem in ~/workspace/TextExclude/gem/TextExclude/lib, run rake test
+* How to run the test suite
 
 * Services (job queues, cache servers, search engines, etc.): None
 
 * Deployment instructions: Not yet
+
