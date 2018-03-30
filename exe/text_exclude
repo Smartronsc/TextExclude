@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby -w
+# frozen_string_literal: true
+
+require 'text_exclude'
+
+TextExclude
