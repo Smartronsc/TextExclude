@@ -95,13 +95,10 @@ class TextProcessor
         @new_text_area.store(@line_number, ta1)                      # not a string, copy line over
       end
     end
-    #
-    # I am happy with the code above but it still needs formatting for the exclude lines
-    #
-    puts("Additional exclude not yet implemented")
+    # I am happy with the code above but it still needs formatting
     @new_text_area = {}
-#    @new_text_area.store(0, ["text", "Additional exclude not yet implemented"])
-    return text_area
+    @new_text_area.store(0, ["text", "Not yet implemented"])
+    return @new_text_area
   end
 
   # 3. Delete all included text
@@ -215,7 +212,7 @@ class TextProcessor
   # leaving out the range of lines to be excluded.
   # test_text_exclude_0200 is the test case.
   def text_mixer_exclude(parameters)
-    @new_text_area.store(0, ["text", "Excluded ranges not yet implemented"])
+    @new_text_area.store(0, ["text", "Not yet implemented"])
    return @new_text_area
  end
 
@@ -251,6 +248,7 @@ class TextProcessor
   # 4. Delete excluded lines in range.
   # Request is for a range of lines to be deleted if excluded from the display
   def text_mixer_range_exclude
+    p "text_mixer_range_exclude"
     @exclude_count = 0
     @text_area.each do |ta|
       @new_text_area.store(ta[0], ta[1]) if ta[0] < @line_start        # copy to new text area
@@ -281,7 +279,7 @@ class TextProcessor
   # 5. Insert lines.
   # Not really working but an interesting start
   def text_mixer_range_insert(parameters)
-=begin
+    p "text_mixer_range_insert"
     @text_lines_index = 0
     @text_lines.each do |tl|
       if @line_start == tl[0] + 2
@@ -293,14 +291,12 @@ class TextProcessor
     end
     text_exclude(@text_area)
     text_mixer(@text_area, parameters)
-=end    
-    @new_text_area.store(0, ["text", "Insert ranges not yet implemented"])
     return @text_area
   end
   
   # 6. Delete a block of lines
-  def text_mixer_range_delete(parameters)
-=begin
+  def text_mixer_range_delete
+    p "text_mixer_range_delete"
     @new_text_area = {}
     @text_area_index = 0
     @text_area.each do |ta|
@@ -309,23 +305,23 @@ class TextProcessor
         @new_text_area.store(@text_area_index += 1, ta[1]) 
       end
     end
-    @new_text_area.each { |ta| p ta } 
-=end
-    @new_text_area.store(0, ["text", "Delete ranges not yet implemented"]) 
+    @new_text_area.each { |ta| p ta }
     return @new_text_area
   end
   
   # 7. Copy lines.
   # Request is for a block of lines to be copied
-  def text_mixer_range_copy(parameters)
-      @new_text_area.store(0, ["text", "Copy ranges not yet implemented"])
+  def text_mixer_range_copy
+    p "text_mixer_range_copy"
+      @new_text_area.store(0, ["text", "Not yet implemented"])
     return @new_text_area
   end
   
   # 8. Move lines before or after.
   # Request is for a block of lines to be moved
-  def text_mixer_range_move(parameters)
-      @new_text_area.store(0, ["text", "Move ranges not yet implemented"])
+  def text_mixer_range_move
+    p "text_mixer_range_move"
+      @new_text_area.store(0, ["text", "Not yet implemented"])
     return @new_text_area
   end
 

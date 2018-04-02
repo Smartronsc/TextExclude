@@ -113,7 +113,6 @@ class FileManager
   def file_history_current
     file_history = $file_history.to_h
     file_history.each_pair do |index, file_name|
-      p "history #{@directory} #{file_name}"
       return file_name unless file_name == ""
     end
   end
@@ -151,7 +150,7 @@ class FileManager
     file_information.each_pair do |directory, files|
       if files.length > 1
         ui.store(index, directory)                                          # the internal UI
-        puts "Now in directory:1 #{directory}" 
+        puts "Now in directory: #{directory}" 
         files.each do |file| 
           unless file.start_with?(".")
             if File.directory?(file)

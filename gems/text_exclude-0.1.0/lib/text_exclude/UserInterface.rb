@@ -119,19 +119,19 @@ class UserInterface
         number = selection.chomp!.to_i
         break if (0..index).include?(number.to_i)                            # index reused from above  
       end
-      @file_name = "#{@directory}/#{ui[number]}"                              # get selection from UI table 
+      file_name = "#{@directory}/#{ui[number]}"                              # get selection from UI table 
     else
-      @file_name = ARGF.readline                                              # input from command file                    
-      p "UI #{@file_name}" 
+      file_name = ARGF.readline                                              # input from command file                    
+      p "UI #{file_name}" 
     end
   end
 
 
   # File output starts in the directory of the current file.
   # The assumption is one will want to keep things together or over write the current file.
-  # If a new file or path is needed the routine calls itself.
-  def user_prompt_write(chosen = "")
-#    @path  = ""
+  def user_prompt_write
+    @choice = ""
+    @path  = ""
     current_file = @file_manager.send(:file_history_current)                  # get the current file
     @file = current_file
     path_split = current_file.split("/")
@@ -146,7 +146,7 @@ class UserInterface
       DELIMITER
     selection = ARGF.readline
       @selection = selection.chomp! 
-      case chosen                                                              # @choice actually runs after 
+      case @choice                                                              # @choice actually runs after 
         when "3"
           @path = "#{@path}/#{@selection}"
           arguments = [@path, @text_area, "w"]
@@ -166,10 +166,15 @@ class UserInterface
           arguments = [@file, @text_area, "a"]
           @file_manager.send(:file_write, *arguments)    
         when "3"
-          chosen = "3"                                                        # still need to ask for file name  
+          @choice = "3"                                                        # still need to ask for file name  
         when "4"
-          chosen = "4"                                                        # still need to ask for path and file name
+          @choice = "4"                                                        # still need to ask for path and file name
       end
+      # these are the controls for the ARGF loop
+#      break unless ("1".."4").include?(@selection)                            # break if a line of text is read in  
+#      break if @selection == 1 || @selection == 2                            # break as file is already set
+#    exit
+
   end
   # Everything up until this point has been assumed to be an exclude request.
   # These are the fundamental options 
@@ -179,7 +184,7 @@ class UserInterface
   #  4. Delete all excluded text            
   #  5. Range functions                  
   #  6. Write to file  
-  #  X. Exit              
+  #  7. Exit              
   
   def user_prompt_options(text_area)
     puts <<-DELIMITER
@@ -189,13 +194,12 @@ class UserInterface
     4. Delete all excluded text
     5. Range functions
     6. Write to file
-    x. Exit
+    7. Exit
       DELIMITER
     unless $mode == "test"                                                  # global test switch
       ARGF.each_line do |selection| 
         @selection = selection.chomp!
-        break if ("0".."6").include?(@selection)
-        break if @selection == "x" || @selection == "X"    
+        break if ("0".."6").include?(@selection)    
       end
     else
       begin
@@ -236,6 +240,7 @@ class UserInterface
     7. Copy lines 
     8. Move lines
     9. Write to file
+
       DELIMITER
     index = 1
     selection = ""
